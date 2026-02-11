@@ -48,7 +48,8 @@ if (typeof newrelic !== 'undefined' && newrelic.log) {
     newrelic.log(
         'DEV, QuotesTable, onButtonClick, Browser Agent v1.308 npm package approach',
         {
-            level: 'WARN',
+            // This "tricks" TypeScript into allowing lowercase
+            level: 'warn' as any,
             customAttributes: {
                 entityId: `jobID: ${row.jobId}, id: ${row.id}`,
             },
