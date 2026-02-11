@@ -15,7 +15,7 @@ const options = {
   // Before settin setUserId Or Logging 
   // new BrowserAgent(options)
 
-  // To test nmp browser agent without adding features array
+  // To test npm browser agent without adding features array
   // const newrelic = new BrowserAgent(options)
 
   // Modification to add the userId
