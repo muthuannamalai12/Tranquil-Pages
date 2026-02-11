@@ -1,5 +1,5 @@
 import { BrowserAgent } from '@newrelic/browser-agent/loaders/browser-agent'
-import { Metrics } from '@newrelic/browser-agent/features/metrics'
+// import { Metrics } from '@newrelic/browser-agent/features/metrics'
 import { createRoot } from 'react-dom/client'
 import App from './App.tsx'
 import './index.css'
@@ -11,18 +11,41 @@ const options = {
     loader_config: {accountID:"1",trustKey:"1",agentID:"601539290",licenseKey:"NRBR-831606d506bdf5cdc0b",applicationID:"601539290"}, // NREUM.loader_config
   }
   
-  // Before settin setUserId
+  // Before settin setUserId Or Logging 
   // new BrowserAgent(options)
 
-  // Modification to add the userId
-  const browserAgent = new BrowserAgent({
-  ...options,
-  features: [
-    Metrics
-  ]
-})
+  // To test nmp browser agent without adding features array
+  const newrelic = new BrowserAgent(options)
 
-browserAgent.setUserId('user-1234-v1.0')
+  // Modification to add the userId
+//   const browserAgent = new BrowserAgent({
+//   ...options,
+//   features: [
+//     Metrics
+//   ]
+// })
+
+// Set the userId for the browser agent
+// browserAgent.setUserId('user-1234-v1.0')
+
+const row = {
+  jobId: 'JOB-777-ABC',
+  id: 'QUOTE-999-XYZ'
+}
+
+if (typeof newrelic !== 'undefined' && newrelic.log) {
+    console.log('QuotesTable: newrelic.log is valid'); 
+    
+    newrelic.log(
+        'DEV, QuotesTable, onButtonClick, Browser Agent v1.308 npm package approach',
+        {
+            level: 'WARN',
+            customAttributes: {
+                entityId: `jobID: ${row.jobId}, id: ${row.id}`,
+            },
+        }
+    );
+}
 
 createRoot(document.getElementById("root")!).render(<App />);
 
