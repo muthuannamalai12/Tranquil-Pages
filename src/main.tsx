@@ -37,25 +37,25 @@ const options = {
 // Set the userId for the browser agent
 // browserAgent.setUserId('user-1234-v1.0')
 
-const row = {
-  jobId: 'JOB-777-ABC',
-  id: 'QUOTE-999-XYZ'
-}
+// const row = {
+//   jobId: 'JOB-777-ABC',
+//   id: 'QUOTE-999-XYZ'
+// }
 
-if (typeof newrelic !== 'undefined' && newrelic.log) {
-    console.log('QuotesTable: newrelic.log is valid'); 
+// if (typeof newrelic !== 'undefined' && newrelic.log) {
+//     console.log('QuotesTable: newrelic.log is valid'); 
     
-    newrelic.log(
-        'DEV, QuotesTable, onButtonClick, Browser Agent v1.308 npm package approach',
-        {
-            // This "tricks" TypeScript into allowing lowercase
-            level: 'warn' as any,
-            customAttributes: {
-                entityId: `jobID: ${row.jobId}, id: ${row.id}`,
-            },
-        }
-    );
-}
+//     newrelic.log(
+//         'DEV, QuotesTable, onButtonClick, Browser Agent v1.308 npm package approach',
+//         {
+//             // This "tricks" TypeScript into allowing lowercase
+//             level: 'warn' as any,
+//             customAttributes: {
+//                 entityId: `jobID: ${row.jobId}, id: ${row.id}`,
+//             },
+//         }
+//     );
+// }
 
 createRoot(document.getElementById("root")!).render(<App />);
 
