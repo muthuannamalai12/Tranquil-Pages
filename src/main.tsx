@@ -1,5 +1,6 @@
 import { BrowserAgent } from '@newrelic/browser-agent/loaders/browser-agent'
 // import { Metrics } from '@newrelic/browser-agent/features/metrics'
+import { Logging } from '@newrelic/browser-agent/features/logging';
 import { createRoot } from 'react-dom/client'
 import App from './App.tsx'
 import './index.css'
@@ -15,7 +16,7 @@ const options = {
   // new BrowserAgent(options)
 
   // To test nmp browser agent without adding features array
-  const newrelic = new BrowserAgent(options)
+  // const newrelic = new BrowserAgent(options)
 
   // Modification to add the userId
 //   const browserAgent = new BrowserAgent({
@@ -24,6 +25,14 @@ const options = {
 //     Metrics
 //   ]
 // })
+
+  // Modification to add the Logging
+  const newrelic = new BrowserAgent({
+  ...options,
+  features: [
+    Logging
+  ]
+})
 
 // Set the userId for the browser agent
 // browserAgent.setUserId('user-1234-v1.0')
