@@ -57,11 +57,12 @@ const options = {
 //     );
 // }
 
-newrelic.recordCustomEvent('DummyTestEvent', {
-    message: 'Hello New Relic!',
-    testMode: true,
-    randomValue: Math.floor(Math.random() * 100)
-});
+// Record a custom event to test the browser agent it works without any features array
+// newrelic.recordCustomEvent('DummyTestEvent', {
+//     message: 'Hello New Relic!',
+//     testMode: true,
+//     randomValue: Math.floor(Math.random() * 100)
+// });
 
 createRoot(document.getElementById("root")!).render(<App />);
 
