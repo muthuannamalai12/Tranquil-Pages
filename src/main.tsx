@@ -16,7 +16,7 @@ const options = {
   // new BrowserAgent(options)
 
   // To test npm browser agent without adding features array
-  const newrelic = new BrowserAgent(options)
+  // const newrelic = new BrowserAgent(options)
 
   // Modification to add the userId
 //   const browserAgent = new BrowserAgent({
@@ -27,35 +27,35 @@ const options = {
 // })
 
   // Modification to add the Logging
-//   const newrelic = new BrowserAgent({
-//   ...options,
-//   features: [
-//     Logging
-//   ]
-// })
+  const newrelic = new BrowserAgent({
+  ...options,
+  features: [
+    Logging
+  ]
+})
 
 // Set the userId for the browser agent
 // browserAgent.setUserId('user-1234-v1.0')
 
-// const row = {
-//   jobId: 'JOB-777-ABC',
-//   id: 'QUOTE-999-XYZ'
-// }
+const row = {
+  jobId: 'JOB-777-ABC',
+  id: 'QUOTE-999-XYZ'
+}
 
-// if (typeof newrelic !== 'undefined' && newrelic.log) {
+if (typeof newrelic !== 'undefined' && newrelic.log) {
     
-//     newrelic.log(
-//         'DEV, QuotesTable, onButtonClick, Browser Agent v1.308 npm package approach',
-//         {
-//             level: 'WARN',
-//             customAttributes: {
-//                 entityId: `jobID: ${row.jobId}, id: ${row.id}`,
-//                 jobId: row.jobId,
-//                 quoteId: row.id
-//             },
-//         }
-//     );
-// }
+    newrelic.log(
+        'DEV, QuotesTable, onButtonClick, Browser Agent v1.308 npm package approach',
+        {
+            level: 'WARN',
+            customAttributes: {
+                entityId: `jobID: ${row.jobId}, id: ${row.id}`,
+                jobId: row.jobId,
+                quoteId: row.id
+            },
+        }
+    );
+}
 
 // Record a custom event to test the browser agent it works without any features array
 // newrelic.recordCustomEvent('DummyTestEvent', {
